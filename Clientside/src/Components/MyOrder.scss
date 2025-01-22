@@ -1,0 +1,76 @@
+/* MyOrder.scss */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  .heading {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  .centerText {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-top: 50px;
+    color: #666;
+
+    &.errorText {
+      color: #ff4d4d;
+    }
+  }
+
+  .orderList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .orderCard {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .orderThumbnail {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    .productName {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 15px;
+      color: #333;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 10px 15px;
+      color: #555;
+
+      .status {
+        font-weight: bold;
+        &.confirmed {
+          color: #4caf50;
+        }
+        &.pending {
+          color: #ff9800;
+        }
+      }
+    }
+  }
+}

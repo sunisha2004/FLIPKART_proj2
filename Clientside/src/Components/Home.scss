@@ -1,0 +1,55 @@
+// Variables
+$padding: 20px;
+$border-color: #ddd;
+$hover-bg-color: #f0f0f0;
+$border-radius: 5px;
+$thumbnail-size: 250px;
+$grid-gap: 50px;
+
+// Styles
+.home-page {
+  padding: $padding;
+
+  h2 {
+    margin-bottom: $padding;
+    font-size: 1.8rem;
+    color: #333;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: $grid-gap;
+
+    .product-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      padding: $padding / 2;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: $hover-bg-color;
+      }
+
+      .product-thumbnail {
+        width: $thumbnail-size;
+        height: $thumbnail-size;
+        margin-bottom: $padding / 2;
+        border-radius: $border-radius;
+        object-fit: cover;
+      }
+      
+
+      span {
+        text-align: center;
+        font-size: 1rem;
+        color: #555;
+        height: 40px;
+      }
+    }
+  }
+}

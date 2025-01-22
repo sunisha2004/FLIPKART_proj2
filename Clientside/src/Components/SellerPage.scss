@@ -1,0 +1,208 @@
+$primary-color: #2a9df4;  // Modern blue
+$secondary-color: #1c6cb2; // Darker blue
+$background-color: #f7f7f7; // Light background color
+$card-bg: #ffffff;  // Card background color
+$button-color: #ff6f61; // Button color for action buttons
+$hover-color: #ff4e3b; // Button hover color
+$input-border-focus: #2a9df4;  // Border color on focus
+$shadow-color: rgba(0, 0, 0, 0.1); // Shadow color for card elements
+
+.page-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  background-color: $background-color;
+
+  .left-section {
+    flex: 3;
+    padding: 30px;
+    background-color: $card-bg;
+    border-right: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px $shadow-color;
+
+    h2 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin: 10px 0;
+    }
+
+    .company-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .form-field {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          font-weight: 500;
+          color: #333;
+          margin-bottom: 8px;
+        }
+
+        input {
+          padding: 12px;
+          border: 1px solid #ddd;
+          border-radius: 8px;
+          font-size: 14px;
+
+          &:focus {
+            outline: none;
+            border-color: $input-border-focus;
+            box-shadow: 0 0 5px rgba(42, 157, 244, 0.3);
+          }
+        }
+      }
+
+      .form-actions {
+        display: flex;
+        justify-content: space-between;
+
+        button {
+          padding: 10px 20px;
+          font-size: 14px;
+          font-weight: 600;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:nth-child(1) {
+            background-color: $primary-color;
+            color: white;
+            &:hover {
+              background-color: $hover-color;
+            }
+          }
+
+          &:nth-child(2) {
+            background-color: #e0e0e0;
+            color: #333;
+            &:hover {
+              background-color: #d0d0d0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .right-section {
+    flex: 7;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px $shadow-color;
+    position: relative;
+
+    h2 {
+      font-size: 22px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+
+      .product-box {
+        padding: 20px;
+        // background-color: $card-bg;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 16px;
+        color: #333;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px $shadow-color;
+
+        &:hover {
+        //   background-color: #f4f8ff;
+          transform: scale(1.05);
+        //   color: $primary-color;
+          box-shadow: 0 8px 16px rgba(42, 157, 244, 0.2);
+        }
+
+        sup {
+          font-size: 12px;
+          color: #999;
+        }
+      }
+    }
+
+    .add-product-button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background-color: $primary-color;
+      color: white;
+      font-size: 28px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(42, 157, 244, 0.3);
+
+      &:hover {
+        background-color: $hover-color;
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .left-section, .right-section {
+    flex: unset;
+    margin-bottom: 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .product-box {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .add-product-button {
+    bottom: 10px;
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-container {
+    padding: 15px;
+  }
+
+  .company-form .form-field {
+    gap: 10px;
+  }
+
+  .form-actions button {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+}

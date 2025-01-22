@@ -1,0 +1,212 @@
+$primary-color: #2874f0; // Flipkart blue
+$secondary-color: #2874f0; // Flipkart orange
+$background-color: #f5f5f5; // Light background color
+$border-color: #e0e0e0; // Light border color
+$card-background: #fff; // Background color for cards
+$hover-color: #0056b3; // Darker shade of blue for hover effects
+$button-hover-color: #2874f0; // Hover color for buttons
+$input-border-focus: #2874f0; // Border color when inputs are focused
+
+.add-product-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 40px;
+  background-color: $background-color;
+  font-family: 'Roboto', sans-serif;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.title {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 500;
+  color: $primary-color;
+  margin-bottom: 30px;
+}
+
+.add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form-card {
+  background-color: $card-background;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.form-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: $primary-color;
+  margin-bottom: 15px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.input,
+.textarea,
+.file-input,
+select {
+  width: 100%;
+  padding: 12px 15px;
+  margin-top: 8px;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease-in-out;
+
+  &:focus {
+    border-color: $input-border-focus;
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 116, 240, 0.3);
+  }
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+select {
+  appearance: none;
+  background-color: #f9f9f9;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath fill="none" stroke="%23666" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2 5l6 6 6-6" /%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+.file-input {
+  padding: 12px 0;
+  background-color: #fff;
+  border: 1px solid $border-color;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $primary-color;
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.submit-btn {
+  padding: 12px 25px;
+  background-color: $primary-color;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: $button-hover-color;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.image-preview,
+.image-previews {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.image-preview img,
+.image-previews img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.image-preview {
+  position: relative;
+}
+
+.image-preview img {
+  border: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .add-product-container {
+    padding: 30px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+
+  .add-product-form {
+    gap: 25px;
+  }
+
+  .input,
+  .textarea,
+  select,
+  .file-input {
+    font-size: 13px;
+  }
+
+  .submit-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-product-container {
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+
+  .add-product-form {
+    gap: 20px;
+  }
+
+  .input,
+  .textarea,
+  select,
+  .file-input {
+    font-size: 12px;
+  }
+
+  .submit-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
