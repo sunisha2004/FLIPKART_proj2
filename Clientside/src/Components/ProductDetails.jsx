@@ -53,10 +53,10 @@ const ProductDetailsPage = () => {
           <p className="product-description">{product.description}</p>
           <p className="product-quantity">Available Quantity: {product.quantity}</p>
 
-          <div className="button-group">
+          {/* <div className="button-group">
             <button className="add-to-cart-button">Add to Cart</button>
             <button className="buy-now-button">Buy Now</button>
-          </div>
+          </div> */}
         </div>
 
         {/* Left Section: Images */}

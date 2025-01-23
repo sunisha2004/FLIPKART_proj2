@@ -207,7 +207,11 @@ const SellerPage = () => {
             <button onClick={handleAddCompany}>Add Company Details</button>
           </div>
         )}
+      <div className="order">
+              <button className="orders" onClick={() => navigate("/sellerOrder")}>Orders</button>
+            </div>
       </div>
+
 
       {/* Right Section: Products and Add Button */}
       <div className="right-section">

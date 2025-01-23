@@ -483,8 +483,7 @@ export async function placeOrder(req, res) {
       const buyerData=await userSchema.findOne({_id:req.user.UserID})
       await sellerOrderSchema.create({sellerID:item.sellerID, buyerID:req.user.UserID, productID:item.productID, quantity:item.quantity, address:address, confirm: false})
       await buyerOrderSchema.create({buyerID:req.user.UserID, productID:item.productID, quantity:item.quantity, confirm: false})
-      const updateResult = await productSchema.updateOne({ _id: item.productID },{ $inc: { quantity: -item.quantity } }
-      );
+      const updateResult = await productSchema.updateOne({ _id: item.productID },{ $inc: { quantity: -item.quantity } })
 
       const info = await transporter.sendMail({
         from: "bujikart@gmail.com",
@@ -508,7 +507,9 @@ export async function placeOrder(req, res) {
       });
       console.log("Message sent: %s", emailData.email);
     })
-    const del =await cartSchema.deleteMany({_id:req.user.UserID})
+    const del =await cartSchema.deleteMany({buyerID:req.user.UserID})
+    console.log(del)
+    
     return res.status(200).json({ message: "Order Recieved" });
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -520,6 +521,8 @@ export async function placeOrder(req, res) {
       });
   }
 }
+
+
 
 
 export async function incrementCartQuantity(req, res) {
@@ -539,6 +542,7 @@ export async function incrementCartQuantity(req, res) {
       });
   }
 }
+
 
 
 export async function decrementCartQuantity(req, res) {
@@ -630,7 +634,7 @@ export async function confirmOrder(req, res) {
     
 
     const info = await transporter.sendMail({
-      from: "bujikart@gmail.com",
+      from: "sunishams2004@gmail.com",
       to: emailData.email,
       subject: "Order Confirmed",
       text: "Your order has been confirmed!",

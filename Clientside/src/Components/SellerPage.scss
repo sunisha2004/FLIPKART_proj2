@@ -91,6 +91,8 @@ $shadow-color: rgba(0, 0, 0, 0.1); // Shadow color for card elements
             }
           }
         }
+
+       
       }
     }
   }
@@ -205,4 +207,13 @@ $shadow-color: rgba(0, 0, 0, 0.1); // Shadow color for card elements
     font-size: 12px;
     padding: 8px 16px;
   }
+}
+.orders{
+  background-color: #2874f0;
+  width: 90%;
+  height: 40px;
+  border: none;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
 }

@@ -3,7 +3,7 @@ import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import "./Nav.scss";
 
-const Navbar = () => {
+const Navbar = ({setName}) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
 
@@ -11,7 +11,12 @@ const Navbar = () => {
     localStorage.removeItem("token");
     alert("Successfully logged out!");
     location.reload();
+    navigate("/login")
   };
+
+  const handlecart=()=>{
+    navigate("/cart")
+  }
 
   return (
     <div className="navbar">
@@ -25,7 +30,7 @@ const Navbar = () => {
           type="text"
           className="search-input"
           placeholder="Search for products, brands and more"
-        />
+          onChange={(e) => setName(e.target.value)}/>
         <button className="search-button">
           <FaSearch className="search-icon" />
         </button>
@@ -45,7 +50,7 @@ const Navbar = () => {
         )}
         <div className="menu-item">More</div>
         <div className="menu-item cart">
-          <FaShoppingCart className="cart-icon" />
+          <FaShoppingCart className="cart-icon" onClick={handlecart} />
           <span className="cart-count"></span>
         </div>
       </div>

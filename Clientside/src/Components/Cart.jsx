@@ -23,7 +23,8 @@ const Cart = () => {
           setCartItems(res.data.cartItems);
         }
       } catch (err) {
-        setError("Failed to load cart items. Please try again.");
+        // setError("Failed to load cart items. Please try again.");
+        setError("No cart products !");
       } finally {
         setLoading(false);
       }

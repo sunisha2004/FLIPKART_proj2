@@ -101,6 +101,7 @@ $dropdown-hover-bg-color: #f9f9f9;
 
     .dropdown {
       position: relative;
+      z-index: 10;
 
       .dropdown-btn {
         background: none;

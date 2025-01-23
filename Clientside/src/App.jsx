@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import {BrowserRouter as Router,Routes,Route, RouterProvider} from 'react-router-dom'
 import Register from './Components/Register'
 import Home from './Components/Home'
@@ -22,12 +23,15 @@ import './App.css'
 
 function App() {
 
+  const [name,setName]=useState("")
+
+
   return (
     <>
     <Router>
-      <Nav/>
+    <Nav setName={setName}/>
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home name={name}/>}/>
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<LoginPage/>}/>
         
@@ -44,13 +48,6 @@ function App() {
         <Route path='/product/:productId' element={<ProductDetails/>}/>
         <Route path="/myOrder" element={<MyOrder/>}></Route>
         <Route path="/sellerOrder" element={<SellerOrder/>}></Route>
-
-
-
-
-
-
-
       </Routes>
     </Router>
     </>

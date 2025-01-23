@@ -54,6 +54,7 @@ const MyOrder = () => {
                   : (Number(order.price) * order.quantity).toFixed(2)}
               </p>
               <p className={`status ${order.confirm ? "confirmed" : "pending"}`}>
+              Status: {order.confirm ? "Confirmed" : "Pending"}
               </p>
             </div>
           ))}
