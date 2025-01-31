@@ -58,6 +58,7 @@ export async function login(req, res) {
 }
 
 export async function verifyEmail(req, res) {
+  
   const { email } = req.body;
 
   if (!email) {
@@ -108,6 +109,63 @@ export async function verifyEmail(req, res) {
     res.status(200).send({ msg: "Verificaton email sented" });
   }
 }
+
+
+export async function verifyRegister(req, res) {
+  console.log("hyyy");
+  
+  const { email } = req.body;
+
+  if (!email) {
+    return res.status(500).send({ msg: "fields are empty" });
+  }
+  const user = await userSchema.findOne({ email });
+  if (user) {
+    return res.status(500).send({ msg: "email not exist" });
+  } else {
+    const info = await transporter.sendMail({
+      from: "sunishams2004@gmail.com",
+      to: email,
+      subject: "verify",
+      text: "VERIFY! your email",
+      html: `
+    <div style="
+         max-width: 600px; 
+         margin: 0 auto; 
+         padding: 20px; 
+         font-family: Arial, sans-serif; 
+         background-color: #f9f9f9; 
+         border: 1px solid #e0e0e0; 
+         border-radius: 10px; 
+         text-align: center;">
+         <h2 style="color: #333;">Email Verification</h2>
+         <p style="color: #555; font-size: 16px;">
+           Hi there! Click the button below to verify your email address and complete the registration process.
+         </p>
+         <a href="http://localhost:5173/Register" style="
+           display: inline-block; 
+           margin-top: 20px; 
+           padding: 10px 20px; 
+           font-size: 16px; 
+           color: #ffffff; 
+           background-color: #007BFF; 
+           text-decoration: none; 
+           border-radius: 5px;
+           font-weight: bold;">
+           Verify Email
+         </a>
+         <p style="color: #999; font-size: 14px; margin-top: 20px;">
+           If you did not request this email, you can safely ignore it.
+         </p>
+       </div>
+       `,
+     });
+    console.log("Message sent: %s", info.messageId);
+    res.status(200).send({ msg: "Verificaton email sented" });
+  }
+}
+
+
 
 export async function updatePassword(req, res) {
   const { pass, cpass, email } = req.body;
@@ -567,8 +625,14 @@ export async function decrementCartQuantity(req, res) {
 
 
 export async function getBuyerOrder(req, res) {
+  // console.log("hi");
+  
   try {
     const order = await buyerOrderSchema.find({ buyerID: req.user.UserID });
+    // if(!order){
+    //   res.status(200).json([])
+    // }
+    // console.log(order);
     
     const detailedOrders = await Promise.all(
       order.map(async (item) => {
@@ -582,7 +646,9 @@ export async function getBuyerOrder(req, res) {
         };
       })
     );
+    // console.log(detailedOrders);
     res.status(200).json(detailedOrders);
+    
   } catch (error) {
     console.error("Error fetching products:", error);
     res.status(500).send({msg: "Failed to fetch products. Please try again later.",error: error.message,});
@@ -735,5 +801,27 @@ export async function getWishList(req, res) {
   } catch (error) {
     console.error("Error checking wishlist:", error);
     res.status(500).json({ message: "Internal server error." });
+  }
+}
+
+
+
+export async function getAllProducts(req, res) {
+  try {
+    const products = await productSchema.find({});
+
+    if (!products || products.length === 0) {
+      return res.status(404).send({ msg: "No products found." });
+    }
+
+    res.status(200).send({ msg: "Products fetched successfully!", products });
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    res
+      .status(500)
+      .send({
+        msg: "Failed to fetch products. Please try again later.",
+        error: error.message,
+      });
   }
 }

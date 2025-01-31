@@ -76,7 +76,7 @@ const LoginPage = () => {
 
         <div className="signup-link">
           <p>
-            New to Flipkart? <Link to="/register">Sign up</Link>
+            New to Flipkart? <Link to="/verifyRegister">Sign up</Link>
           </p>
         </div>
       </div>

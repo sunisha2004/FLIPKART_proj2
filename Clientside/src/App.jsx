@@ -18,6 +18,7 @@ import VerifyEmail from './Components/EmailVerify'
 import ResetPassword from './Components/ResetPass'
 import MyOrder from "./Components/MyOrder"
 import SellerOrder from './Components/SellerOrder'
+import VerifyRegister from './Components/VerifyRegister'
 
 import './App.css'
 
@@ -41,6 +42,7 @@ function App() {
         <Route path='/resetPassword' element={<ResetPassword/>}/>
         <Route path='/cart' element={<Cart/>}/>
         <Route path='/verifyEmail' element={<VerifyEmail/>}/>
+        <Route path='/verifyRegister' element={<VerifyRegister/>}/>
         <Route path='/sellerpage' element={<SellerPage/>}/>
         <Route path='/addproduct' element={<AddProduct/>}/>
         <Route path='/products/:productId' element={<ProductDetailsPage/>}/>

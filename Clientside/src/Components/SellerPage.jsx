@@ -204,9 +204,11 @@ const SellerPage = () => {
           // If no company details are found, show the "Add Company Details" button
           <div>
             <p>No company details found.</p>
-            <button onClick={handleAddCompany}>Add Company Details</button>
+            <button onClick={handleAddCompany} className="cmpnydetails">Add Company Details</button>
           </div>
+
         )}
+        <br />
       <div className="order">
               <button className="orders" onClick={() => navigate("/sellerOrder")}>Orders</button>
             </div>

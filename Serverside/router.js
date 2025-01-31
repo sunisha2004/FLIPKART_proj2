@@ -37,6 +37,7 @@ router.route('/adduser').post(rh.addUser)
 router.route('/addAddress').post(Auth,rh.addAddress)
 router.route('/login').post(rh.login)
 router.route('/verifyEmail').post(rh.verifyEmail)
+router.route('/verifyRegister').post(rh.verifyRegister)
 // router.route('/getuser').get(Auth,rh.getUser)
 router.route('/getuserData').get(Auth,rh.getUserData)
 router.route('/updateUser').put(Auth,rh.updateUserData)
@@ -51,6 +52,7 @@ router.route('/getProductsByCategory/:category').get(Auth, rh.getProductsByCateg
 router.route('/getProduct/:productId').get(Auth, rh.getProductById);
 router.route('/getAllOtherProducts').get(Auth, rh.getAllOtherProducts);
 router.route('/getProduct/:productId').get(Auth, rh.getProductById);
+router.route('/getAllProducts').get(rh.getAllProducts);
 router.route('/addCart').post(Auth, rh.addCart);
 router.route('/findOnCart/:productId').get(Auth, rh.findOnCart);
 router.route('/getCart').get(Auth, rh.getCart);

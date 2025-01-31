@@ -10,8 +10,8 @@ const Navbar = ({setName}) => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     alert("Successfully logged out!");
-    location.reload();
-    navigate("/login")
+    // location.reload();
+    navigate("/")
   };
 
   const handlecart=()=>{

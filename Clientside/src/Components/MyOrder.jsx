@@ -11,6 +11,8 @@ const MyOrder = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
+        console.log("hi");
+        
         setLoading(true);
         const response = await axios.get(`http://localhost:3002/api/getBuyerOrder`, {
           headers: { Authorization: `Bearer ${token}` },
@@ -54,7 +56,7 @@ const MyOrder = () => {
                   : (Number(order.price) * order.quantity).toFixed(2)}
               </p>
               <p className={`status ${order.confirm ? "confirmed" : "pending"}`}>
-              Status: {order.confirm ? "Confirmed" : "Pending"}
+                Status: {order.confirm ? "Confirmed" : "Pending"}
               </p>
             </div>
           ))}

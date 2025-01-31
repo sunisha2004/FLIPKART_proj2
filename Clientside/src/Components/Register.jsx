@@ -7,7 +7,7 @@ const Register = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
+    email: localStorage.getItem('email'),
     phone: '',
     accType: '',
     pwd: '',
@@ -83,6 +83,7 @@ const Register = () => {
               value={formData.email}
               onChange={handleChange}
               required
+              disabled
             />
           </div>
           <div className="form-group">
